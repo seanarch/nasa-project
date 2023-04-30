@@ -14,5 +14,5 @@ const launch = {
 launches.set(launch.flightNumber, launch);
 
 module.exports = {
-  launch,
+  launches,
 };
