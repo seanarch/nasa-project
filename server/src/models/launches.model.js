@@ -37,7 +37,7 @@ function addNewLaunch(launch) {
     Object.assign(launch, {
       success: true,
       upcoming: true,
-      customer: ["SomeGroup", "NASA"],
+      customers: ["SomeGroup", "NASA"],
       flightNumber: latestFlightNumber,
     })
   );
