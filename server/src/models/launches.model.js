@@ -61,7 +61,7 @@ async function populateLaunches() {
       launchDate: launchDoc["date_local"],
       upcoming: launchDoc["upcoming"],
       success: launchDoc["success"],
-      customers,
+      customer: customers,
     };
 
     console.log(`${launch.flightNumber} ${launch.mission}`);
@@ -104,11 +104,6 @@ async function getLatestFlightNumber() {
 }
 
 async function abortLaunchById(launchId) {
-  // const aborted = launches.get(launchId);
-  // aborted.upcoming = false;
-  // aborted.success = false;
-  // return aborted;
-
   const aborted = await launchesDatabase.updateOne(
     {
       flightNumber: launchId,
@@ -158,19 +153,6 @@ async function scheduleNewLaunch(launch) {
 
   await saveLaunch(newLaunch);
 }
-
-// function addNewLaunch(launch) {
-//   latestFlightNumber++;
-//   launches.set(
-//     latestFlightNumber,
-//     Object.assign(launch, {
-//       success: true,
-//       upcoming: true,
-//       customer: ["SomeGroup", "NASA"],
-//       flightNumber: latestFlightNumber,
-//     })
-//   );
-// }
 
 module.exports = {
   getAllLaunches,
